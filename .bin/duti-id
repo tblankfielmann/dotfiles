@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Map a custom protocol to an application on the Mac
+# see https://github.com/moretension/duti
+
+app="$1"
+me=$(basename $0)
+
+if [ -z "$app" ]; then
+  echo "usage: $me <application bundle path>"
+  exit 1
+fi
+
+mdls -name kMDItemCFBundleIdentifier "$app"
+mdls -name kMDItemContentTypeTree "$app"

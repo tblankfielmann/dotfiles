@@ -1,0 +1,28 @@
+#!/bin/bash
+
+target="$1"
+count=100
+
+trap exit SIGINT
+
+if [ -z "$target" ]; then
+  echo "usage: $0 <target to ping>"; exit
+fi
+
+while [ "$count" -ne 0 ] ; do
+  ping -c 1 "$target" > /dev/null
+  rc=$?
+  if [ "$rc" -eq 0 ] ; then
+    duration=$SECONDS
+    count=1
+  fi
+  (( count=count-1 ))
+done
+
+if [[ "$rc" -eq 0 ]] ; then
+    echo "Ping target $target is up after $duration seconds."
+    say "Ping target $target is up after $duration seconds."
+else
+    echo "Timeout after $count retries and $duration seconds."
+    say "Timeout after $count retries and $duration seconds."
+fi

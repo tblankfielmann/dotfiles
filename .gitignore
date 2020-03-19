@@ -1,0 +1,19 @@
+# Secrets
+.ssh/id_*
+.ssh/*.pem
+.ssh/known_hosts*
+.envrc
+.azure
+.gnupg/*
+
+# compiled python
+*.pyc
+
+# macOS
+.DS_Store
+Desktop.ini
+._*
+Thumbs.db
+.Spotlight-V100
+.Trashes
+*.local

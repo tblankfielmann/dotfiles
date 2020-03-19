@@ -1,0 +1,81 @@
+[credential]
+  helper = cache --timeout 28800
+
+[push]
+  #default = matching
+  default = simple
+
+# [remote "origin"]
+#   fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+
+[core]
+# excludesfile = /home/xxx/.gitignore-global
+pager = less -FRX
+#whitespace = blank-at-eol,blank-at-eof,trailing-space,space-before-tabautocrlf = true
+ 
+## in case your firewall is blocking git://, use https:// instead
+[url "https://"]
+  insteadOf = git://
+
+[alias]
+  a  = add
+  ap = add -p
+  au = add --update
+  
+  b  = branch -vv
+  ba = branch -a
+  bclear = branch -vv | grep ': gone]' | grep -v '*' | awk '{ print $1; }' | xargs -r git branch -d
+
+  bi = bisect
+  cl = clone
+  co = checkout
+  
+  d  = diff --color
+  dc = diff --color --cached
+  dd = difftool --dir-diff
+  
+  f  = fetch
+  
+  c     = commit -s
+  cm    = commit -s -m
+  ca    = commit -a -s
+  cam   = commit -a -s -m
+  cp    = commit -s -p
+  
+  l     = log --color --oneline --graph --decorate=short --all --simplify-by-decoration
+  ll    = log --color --oneline --graph --decorate=short --all
+  lt    = log --color --graph --decorate=short --all --simplify-by-decoration
+  llt   = log --color --graph --decorate=short --all
+  lf    = log --color --oneline --graph --decorate=short --name-only
+  laf   = log --color --oneline --graph --decorate=short --name-only --all
+  lp    = log --color --oneline --decorate=short -p
+  lap   = log --color --oneline --decorate=short -p --all
+  
+  m  = merge --no-ff
+  mf = merge --ff-only
+  
+  p  = push
+  pl = pull
+  
+  r  = reset
+  rsh= reset --soft HEAD
+  rhh= reset --hard HEAD
+  
+  s  = status --short
+  ss = status
+  t  = tag
+  logout = credential-cache exit
+	clean-dry = clean -dfx --dry-run
+	clean-run = clean -dfx
+
+[apply]
+  whitespace = fix
+ 
+[pager]
+  status = true
+ 
+[color]
+  ui = auto
+
+[remote "origin"]
+	prune = true

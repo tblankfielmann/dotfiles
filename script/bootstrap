@@ -1,0 +1,20 @@
+#!/bin/bash
+# bootstrap: install miscellaneous things (executed by strap.sh)
+
+set -exo pipefail
+
+# install or update packages from ~/.Brewfile
+brew update
+brew bundle check --global || brew bundle --global
+
+# install Oh My Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# sync .oh-my-zsh/custom
+pushd ~/.dotfiles > /dev/null
+rsync .oh-my-zsh/custom ~/.oh-my-zsh/
+popd > /dev/null
+# install plugins
+pushd ~/.oh-my-zsh/custom/plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions.git
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+popd > /dev/null
