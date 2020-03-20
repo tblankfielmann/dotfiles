@@ -1,37 +1,46 @@
 #!/bin/bash
 # bootstrap: install miscellaneous things (executed by strap.sh)
 
-set -exo pipefail
+set -eo pipefail
 
 pushd ~/.dotfiles > /dev/null
-echo "copying dotfiles ..."
+echo "==> syncing dotfiles to ~/.dotfiles"
 rsync --exclude ".git/" \
   --exclude ".DS_Store" \
   --exclude "script/" \
   --exclude ".oh-my-zsh" \
   --exclude "*.md" \
   --exclude "*.txt" \
-  -avh --no-perms -n . ~;
+  -avh --no-perms . $HOME/;
 popd > /dev/null
 
-# configure Git on macOS to properly handle line endings
+# configure git on macOS to properly handle line endings
 git config --global core.autocrlf input
 
-# set macOS Location for Screenshots
-defaults write com.apple.screencapture location ~/Downloads 
+# defaults Location for Screenshots
+defaults write com.apple.screencapture location ~/Downloads
+
+# defaults Autohide Dock
+defaults write com.apple.dock autohide -bool true
+
+# VSCode extension
+code --install-extension Shan.code-settings-sync
+
+# install Oh My Zsh
+CHSH='no' RUNZSH='no' KEEP_ZSHRC='yes' \
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || true
+# sync .oh-my-zsh/custom
+rsync -rav --no-perms ~/.dotfiles/.oh-my-zsh/custom ~/.oh-my-zsh/
+echo "==> Installing Oh My Zsh plugins"
+pushd ~/.oh-my-zsh/custom/plugins
+rm -rf zsh-autosuggestions \
+  && git clone https://github.com/zsh-users/zsh-autosuggestions.git
+rm -rf zsh-syntax-highlighting && \
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+popd > /dev/null
+
+## SSH directory 
+install -d 660 ~/.ssh
 
 # install or update packages from ~/.Brewfile
-brew update
-brew bundle check --global || brew bundle --global
-
-# sync .oh-my-zsh/custom
-pushd ~/.dotfiles > /dev/null
-rsync .oh-my-zsh/custom ~/.oh-my-zsh/
-popd > /dev/null
-# install plugins
-pushd ~/.oh-my-zsh/custom/plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions.git
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-popd > /dev/null
-# install Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+echo "==> To install packages run 'brew bundle --global --verbose'"
