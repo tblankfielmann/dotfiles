@@ -60,7 +60,7 @@ checkenv() {
   fi
 }
 
-environment=(STRAP_GIT_NAME STRAP_GIT_EMAIL STRAP_GITHUB_USER STRAP_GITHUB_TOKEN XXX)
+environment=(STRAP_GIT_NAME STRAP_GIT_EMAIL STRAP_GITHUB_USER STRAP_GITHUB_TOKEN)
 checkenv "${environment[@]}" || exit 1
 
 # Set by web/app.rb
