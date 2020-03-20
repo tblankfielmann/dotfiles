@@ -1,10 +1,12 @@
 cask_args appdir: '/Applications'
 
 # Taps
-tap 'homebrew/core'
-tap 'homebrew/bundle'
-tap 'homebrew/services'
-tap 'caskroom/cask'
+# tap 'homebrew/core'
+# tap 'homebrew/bundle'
+# tap 'homebrew/services'
+
+# Editor
+cask 'visual-studio-code'
 
 # kubectl lives in Docker App
 cask 'docker'
@@ -54,7 +56,7 @@ brew 'pre-commit'
 brew 'hub'
 brew 'gitversion'
 brew 'git-credential-manager'
-brew 'nektos/tap/act'
+brew 'nektos/tap'
 brew 'hub'
 
 # dev tools
@@ -84,15 +86,16 @@ brew 'mtr'
 brew 'keychain'
 brew 'wget'
 
+# more messengers
+cask 'slack'
+cask 'telegram'
+
 # miscellaneous apps
 cask 'iterm2'
 cask 'dropbox'
 cask 'alfred'
-cask 'slack'
-cask 'telegram'
 cask 'caffeine'
 cask 'google-chrome'
 cask 'hazel'
 cask 'calibre'
-cask 'vlc'
 cask 'grandperspective'
