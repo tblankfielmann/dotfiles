@@ -1,9 +1,10 @@
 cask_args appdir: '/Applications'
 
 # Taps
-# tap 'homebrew/core'
-# tap 'homebrew/bundle'
-# tap 'homebrew/services'
+tap 'homebrew/cask'
+tap 'homebrew/core'
+tap 'homebrew/services'
+tap 'homebrew/cask-versions'
 
 # Editor
 cask 'visual-studio-code'
@@ -91,6 +92,7 @@ cask 'slack'
 cask 'telegram'
 
 # miscellaneous apps
+cask '1password6'
 cask 'iterm2'
 cask 'dropbox'
 cask 'alfred'
