@@ -101,3 +101,5 @@ cask 'google-chrome'
 cask 'hazel'
 cask 'calibre'
 cask 'grandperspective'
+cask 'moom'
+
