@@ -1,10 +1,9 @@
 cask_args appdir: '/Applications'
 
 # Taps
-tap 'homebrew/cask'
-tap 'homebrew/core'
-tap 'homebrew/services'
-tap 'homebrew/cask-versions'
+# tap 'homebrew/core'
+# tap 'homebrew/bundle'
+# tap 'homebrew/services'
 
 # Editor
 cask 'visual-studio-code'
@@ -86,13 +85,13 @@ brew 'tree'
 brew 'mtr'
 brew 'keychain'
 brew 'wget'
+brew 'hugo'
 
-# more messengers
+# more messengers ;)
 cask 'slack'
 cask 'telegram'
 
 # miscellaneous apps
-cask '1password6'
 cask 'iterm2'
 cask 'dropbox'
 cask 'alfred'
@@ -101,5 +100,4 @@ cask 'google-chrome'
 cask 'hazel'
 cask 'calibre'
 cask 'grandperspective'
-cask 'moom'
-
+cask 'atext'
