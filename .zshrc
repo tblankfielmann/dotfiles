@@ -75,9 +75,15 @@ export ZSH_THEME="frisk-local"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions ssh-agent git-prompt)
 
+# enable ssh-agent forwarding support
+zstyle :omz:plugins:ssh-agent agent-forwarding on
+# load ssh identities
+zstyle :omz:plugins:ssh-agent identities id_rsa id_rsa_old
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+# export PROMPT='%25<...<%~%<<: '
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
