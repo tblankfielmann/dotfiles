@@ -1,9 +1,9 @@
 cask_args appdir: '/Applications'
 
 # Taps
-# tap 'homebrew/core'
-# tap 'homebrew/bundle'
-# tap 'homebrew/services'
+tap 'homebrew/core'
+tap 'homebrew/bundle'
+tap 'homebrew/services'
 
 # Editor
 cask 'visual-studio-code'
@@ -56,7 +56,7 @@ brew 'pre-commit'
 brew 'hub'
 brew 'gitversion'
 brew 'git-credential-manager'
-brew 'nektos/tap'
+brew 'nektos/tap/act'
 brew 'hub'
 
 # dev tools
@@ -101,3 +101,4 @@ cask 'hazel'
 cask 'calibre'
 cask 'grandperspective'
 cask 'atext'
+cask 'postman'
