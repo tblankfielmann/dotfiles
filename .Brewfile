@@ -55,6 +55,7 @@ brew 'pre-commit'
 brew 'hub'
 brew 'gitversion'
 brew 'git-credential-manager'
+tap 'nektos/tap'
 brew 'nektos/tap/act'
 brew 'hub'
 
