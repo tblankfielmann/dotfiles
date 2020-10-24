@@ -48,7 +48,6 @@ cask 'quicklook-json'
 # git tools
 brew 'git'
 brew 'gitup'
-brew 'jamesdobson/gogitmoji/gogitmoji'
 brew 'git-secret'
 brew 'pre-commit'
 
