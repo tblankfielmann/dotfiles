@@ -8,15 +8,23 @@ defaults write com.apple.screencapture location ~/Downloads
 # defaults Autohide Dock
 defaults write com.apple.dock autohide -bool true
 
-# sync .oh-my-zsh/custom
-rsync -rav --no-perms ~/.dotfiles/.oh-my-zsh/custom ~/.oh-my-zsh/
-echo "==> Installing Oh My Zsh plugins"
-pushd ~/.oh-my-zsh/custom/plugins
-rm -rf zsh-autosuggestions &&
-  git clone https://github.com/zsh-users/zsh-autosuggestions.git
-rm -rf zsh-syntax-highlighting &&
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+echo "--> linking Oh My Zsh custom"
+pushd ~/.dotfiles/oh-my-zsh >/dev/null
+ln -sf custom ../../.oh-my-zsh
 popd >/dev/null
 
 ## create SSH directory
 install -d -m 660 ~/.ssh
+
+echo "--> linking ~/.dotfiles to $HOME/"
+pushd ~/.dotfiles >/dev/null
+ln -sf "$(pwd)"/.[a-zA-Z]* "$HOME"/
+popd >/dev/null
+
+echo "--> linking ~/.dotfiles/.bin to $HOME/"
+pushd ~/.dotfiles >/dev/null
+ln -sf "$(pwd)"/.bin "$HOME"/
+popd >/dev/null
+
+# install awshelper
+pip3 install awshelper https://codeload.github.com/boto/botocore/zip/v2

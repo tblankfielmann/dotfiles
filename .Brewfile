@@ -5,34 +5,59 @@ tap 'homebrew/core'
 tap 'homebrew/bundle'
 tap 'homebrew/services'
 
-# Editor
-cask 'visual-studio-code'
+# control external displays
+cask 'lunar'
 
-# kubectl lives in Docker App
+# Docker
 cask 'docker'
+# kubectl lives in Docker App
 
 # Kubernetes
 tap 'johanhaleby/kubetail'
-brew 'kubetail'
+brew 'stern'
 brew 'kubectx'
 brew 'krew'
+brew 'kube-ps1'
+brew 'derailed/k9s/k9s'
+# brew 'minikube'
+# Operator SDK
+brew 'operator-sdk'
+
+# Helm
+brew 'helm'
+brew 'helm@2'
+brew 'helmfile'
+tap 'helm/tap'
+brew 'chart-releaser'
 
 # Cloud azure
-brew 'azure/draft/draft'
-brew 'azure-cli'
+# brew 'azure/draft/draft'
+# brew 'azure-cli'
+
+# Cloud google
+# cask 'google-cloud-sdk'
+
+# Cloud aws
+tap 'versent/homebrew-taps'
+brew 'saml2aws'
+brew 'awscli'
+tap 'weaveworks/tap'
+brew 'weaveworks/tap/eksctl'
 
 # brew 'packer'
-cask 'multipass'
+# cask 'multipass'
 
 # Terraform
 brew 'terraform'
+brew 'terraform-docs'
 brew 'graphviz'
 brew 'tflint'
+brew 'terragrunt'
+brew 'tfenv', link: :force
 
 # Microsoft related
-cask 'powershell'
-cask 'dotnet'
-brew 'unix2dos'
+# cask 'powershell'
+# brew 'unix2dos'
 
 # Font related
 tap 'homebrew/cask-fonts'
@@ -42,8 +67,8 @@ brew 'highlight'
 
 # QuickLook
 # See https://github.com/sindresorhus/quick-look-plugins
-cask 'betterzip'
-cask 'quicklook-json'
+# cask 'betterzip'
+# cask 'quicklook-json'
 
 # git tools
 brew 'git'
@@ -62,7 +87,13 @@ brew 'hub'
 # dev tools
 cask 'visual-studio-code'
 brew 'direnv'
+brew 'shellcheck'
 brew 'jq'
+brew 'yq'
+brew 'yamllint'
+
+# zsh
+brew 'fzf'
 
 # dev Node.js
 brew 'node'
@@ -75,7 +106,11 @@ brew 'node'
 brew 'golang'
 brew 'dep'
 
+# dev Kubernetes
+brew 'skaffold'
+
 # miscellaneous tools
+brew 'dialog'
 brew 'pandoc'
 brew 'watch'
 brew 'mosh'
@@ -86,6 +121,7 @@ brew 'mtr'
 brew 'keychain'
 brew 'wget'
 brew 'hugo'
+brew 'miniupnpc'
 
 # more messengers ;)
 cask 'slack'
@@ -102,3 +138,6 @@ cask 'calibre'
 cask 'grandperspective'
 cask 'atext'
 cask 'postman'
+cask 'openconnect-gui'
+cask '1password-cli'
+cask 'finicky'
