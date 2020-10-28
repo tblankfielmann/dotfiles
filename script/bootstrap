@@ -22,7 +22,7 @@ ln -sf "$(pwd)"/.[a-zA-Z]* "$HOME"/
 popd >/dev/null
 
 echo "--> linking ~/.dotfiles/.bin to $HOME/"
-pushd ~/.dotfiles >/dev/null
+pushd ~/.dotfiles/.bin >/dev/null
 ln -sf "$(pwd)"/.bin "$HOME"/
 popd >/dev/null
 
