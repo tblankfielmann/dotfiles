@@ -84,19 +84,25 @@ tap 'nektos/tap'
 brew 'nektos/tap/act'
 brew 'hub'
 
-# dev tools
+# Editor & Terminal
 cask 'visual-studio-code'
-brew 'direnv'
-brew 'shellcheck'
+cask 'iterm2'
+
+# yaml / json
 brew 'jq'
 brew 'yq'
 brew 'yamllint'
+tap 'starkandwayne/cf'
+brew 'spruce'
+# cask 'postman'
 
-# zsh
+# Shell tools
 brew 'fzf'
+brew 'direnv'
+brew 'shellcheck'
 
 # dev Node.js
-brew 'node'
+# brew 'node'
 
 # dev Ruby
 # brew 'rbenv'
@@ -128,7 +134,6 @@ cask 'slack'
 cask 'telegram'
 
 # miscellaneous apps
-cask 'iterm2'
 cask 'dropbox'
 cask 'alfred'
 cask 'caffeine'
@@ -137,7 +142,6 @@ cask 'hazel'
 cask 'calibre'
 cask 'grandperspective'
 cask 'atext'
-cask 'postman'
 cask 'openconnect-gui'
 cask '1password-cli'
 cask 'finicky'
