@@ -5,8 +5,13 @@ set -eo pipefail
 # make files in ~/.dotfiles available
 echo "--> linking ~/.dotfiles to $HOME/"
 pushd ~/.dotfiles >/dev/null
-ln -sf "$(pwd)"/.[a-zA-Z]* "$HOME"/
+for i in "$(pwd)/.[a-zA-Z]*"; do
+    test -f "$i" &&
+        ln -sf "$i" "$HOME"/
+done
 popd >/dev/null
+
+# ln -sf "$(pwd)"/.[a-zA-Z]* "$HOME"/
 
 echo "--> linking ~/.dotfiles/.bin to $HOME/"
 pushd ~/.dotfiles/.bin >/dev/null
@@ -14,8 +19,9 @@ ln -sf "$(pwd)"/.bin "$HOME"/
 popd >/dev/null
 
 echo "--> linking Oh My Zsh custom"
-pushd ~/.dotfiles/oh-my-zsh >/dev/null
-ln -sf custom ../../.oh-my-zsh
+pushd ~/.dotfiles/.oh-my-zsh >/dev/null
+rm -rf ../../.oh-my-zsh/custom
+ln -sf $(pwd)/custom ../../.oh-my-zsh
 popd >/dev/null
 
 ## create SSH directory
