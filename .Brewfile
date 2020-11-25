@@ -43,6 +43,7 @@ brew 'saml2aws'
 brew 'awscli'
 tap 'weaveworks/tap'
 brew 'weaveworks/tap/eksctl'
+# cask 'aws-vault'
 
 # brew 'packer'
 # cask 'multipass'
@@ -54,6 +55,8 @@ brew 'graphviz'
 brew 'tflint'
 brew 'terragrunt'
 brew 'tfenv', link: :force
+tap 'alextodicescu/tgenv'
+brew 'tgenv'
 
 # Microsoft related
 # cask 'powershell'
@@ -77,12 +80,11 @@ brew 'git-secret'
 brew 'pre-commit'
 
 # GitHub tools
-brew 'hub'
+brew 'gh'   # GitHub’s official command line tool
 brew 'gitversion'
 brew 'git-credential-manager'
 tap 'nektos/tap'
 brew 'nektos/tap/act'
-brew 'hub'
 
 # Editor & Terminal
 cask 'visual-studio-code'
@@ -92,12 +94,12 @@ cask 'iterm2'
 brew 'jq'
 brew 'yq'
 brew 'yamllint'
-tap 'starkandwayne/cf'
-brew 'spruce'
+# tap 'starkandwayne/cf'
+# brew 'spruce'
 # cask 'postman'
 
 # Shell tools
-brew 'fzf'
+# brew 'fzf'
 brew 'direnv'
 brew 'shellcheck'
 
@@ -144,4 +146,3 @@ cask 'grandperspective'
 cask 'atext'
 cask 'openconnect-gui'
 cask '1password-cli'
-cask 'finicky'
