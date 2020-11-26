@@ -11,12 +11,6 @@ for i in $(find . -type f -name '.[a-zA-Z]*'); do
 done
 popd >/dev/null
 
-echo "--> linking ~/.dotfiles/.bin to $HOME/"
-pushd ~/.dotfiles >/dev/null
-rm -rf "$HOME/.bin"
-ln -sf "$(pwd)"/.bin "$HOME"/
-popd >/dev/null
-
 echo "--> linking Oh My Zsh custom"
 pushd ~/.dotfiles/.oh-my-zsh >/dev/null
 rm -rf "$HOME/.oh-my-zsh/custom"
