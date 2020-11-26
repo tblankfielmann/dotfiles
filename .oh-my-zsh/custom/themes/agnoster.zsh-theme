@@ -67,8 +67,8 @@ prompt_context() {
 prompt_kubecontext() {
   (( $+commands[kubectx] )) || return
   (( $+commands[kubens] )) || return
-  CTX=$(kubectx -c)
-  CNS=$(kubens -c)
+  CTX=$(kubectx -c 2>/dev/null)
+  CNS=$(kubens -c 2>/dev/null)
   if [[ $CTX == *"dev"* ]]; then
     prompt_segment green black "${CTX}:${CNS}"
   elif [[ $CTX == *"qa"* ]]; then
