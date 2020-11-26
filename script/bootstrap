@@ -11,23 +11,20 @@ for i in $(find . -type f -name '.[a-zA-Z]*'); do
 done
 popd >/dev/null
 
-exit 0
-
-# ln -sf "$(pwd)"/.[a-zA-Z]* "$HOME"/
-
 echo "--> linking ~/.dotfiles/.bin to $HOME/"
-pushd ~/.dotfiles/.bin >/dev/null
+pushd ~/.dotfiles >/dev/null
+rm -rf "$HOME/.bin"
 ln -sf "$(pwd)"/.bin "$HOME"/
 popd >/dev/null
 
 echo "--> linking Oh My Zsh custom"
 pushd ~/.dotfiles/.oh-my-zsh >/dev/null
-rm -rf ../../.oh-my-zsh/custom
-ln -sf $(pwd)/custom ../../.oh-my-zsh
+rm -rf "$HOME/.oh-my-zsh/custom"
+ln -sf $(pwd)/custom "$HOME/.oh-my-zsh"
 popd >/dev/null
 
 ## create SSH directory
-install -d -m 660 ~/.ssh
+install -d -m 700 ~/.ssh
 
 # defaults Location for Screenshots
 defaults write com.apple.screencapture location ~/Downloads
@@ -35,5 +32,9 @@ defaults write com.apple.screencapture location ~/Downloads
 # defaults Autohide Dock
 defaults write com.apple.dock autohide -bool true
 
+mkdir -p "$HOME/.local"
+
 # iTerm shell integration
 curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
+
+echo "--> FINISHED"
