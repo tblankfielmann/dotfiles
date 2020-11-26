@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Use BasicTeX and VScode with ext latex-workshop
+
+code ext install latex-workshop
+
+sudo tlmgr option repository ctan
+sudo tlmgr update --self
+sudo tlmgr install latexindent
+sudo tlmgr install latexmk
+
+sudo tlmgr install paralist lastpage currvita wrapfig csquotes
+# kpsewhich wrapfig.sty
+
+
