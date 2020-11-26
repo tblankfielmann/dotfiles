@@ -1,9 +1,9 @@
 [credential]
-helper = cache --timeout 28800
+	helper = osxkeychain
 
 [push]
 #default = matching
-default = simple
+	default = current
 
 # [remote "origin"]
 #   fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
@@ -11,6 +11,7 @@ default = simple
 [core]
 # excludesfile = /home/xxx/.gitignore-global
 pager = less -FRX
+	autocrlf = input
 #whitespace = blank-at-eol,blank-at-eof,trailing-space,space-before-tabautocrlf = true
 
 ## in case your firewall is blocking git://, use https:// instead
@@ -81,13 +82,18 @@ ui = auto
 prune = true
 
 [pull]
-rebase = true
+	rebase = true
 
 [rebase]
-autoStash = true
+	autoStash = true
 
 [filter "lfs"]
 clean = git-lfs clean -- %f
 smudge = git-lfs smudge -- %f
 process = git-lfs filter-process
 required = true
+[user]
+	name = Karsten Müller
+	email = kmue@me.com
+[github]
+	user = karstenmueller
