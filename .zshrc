@@ -24,15 +24,10 @@ TERM="xterm-256color"
 plugins=(
     aws
     git
-    fly
     kubectl
     kube-ps1
     ssh-agent
     git-prompt
-    zsh-syntax-highlighting
-    zsh-autosuggestions
-    fzf
-    git-it-on
     osx
 )
 
