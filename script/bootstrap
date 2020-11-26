@@ -5,11 +5,13 @@ set -eo pipefail
 # make files in ~/.dotfiles available
 echo "--> linking ~/.dotfiles to $HOME/"
 pushd ~/.dotfiles >/dev/null
-for i in "$(pwd)/.[a-zA-Z]*"; do
-    test -f "$i" &&
-        ln -sf "$i" "$HOME"/
+for i in $(find . -type f -name '.[a-zA-Z]*'); do
+    test -f "$(pwd)/$i" &&
+        ln -sf "$(pwd)/$i" "$HOME"/
 done
 popd >/dev/null
+
+exit 0
 
 # ln -sf "$(pwd)"/.[a-zA-Z]* "$HOME"/
 
