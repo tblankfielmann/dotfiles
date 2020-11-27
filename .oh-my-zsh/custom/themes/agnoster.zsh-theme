@@ -75,7 +75,7 @@ prompt_kubecontext() {
     prompt_segment yellow black "${CTX}:${CNS}"
   elif [[ $CTX == *"prod"* ]]; then
     prompt_segment red yellow "${CTX}:${CNS}"
-  else
+  elif [[ $CTX != "" ]]; then
     prompt_segment NONE white "${CTX}:${CNS}"
   fi
 }
