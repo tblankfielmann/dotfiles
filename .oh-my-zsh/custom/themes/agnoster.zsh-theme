@@ -1,5 +1,6 @@
 # agnoster's Theme - https://gist.github.com/3712874
 # A Powerline-inspired theme for ZSH
+# Requires a powerline patched font (https://gist.github.com/qrush/1595572)
 
 CURRENT_BG='NONE'
 
@@ -98,9 +99,9 @@ prompt_git() {
     dirty=$(parse_git_dirty)
     ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git rev-parse --short HEAD 2> /dev/null)"
     if [[ -n $dirty ]]; then
-      prompt_segment yellow black
+      prompt_segment $CURRENT_BG yellow
     else
-      prompt_segment green $CURRENT_FG
+      prompt_segment $CURRENT_BG green
     fi
 
     if [[ -e "${repo_path}/BISECT_LOG" ]]; then
@@ -191,7 +192,8 @@ prompt_hg() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment blue $CURRENT_FG '%~'
+  # whole path '%~', only current and one-level above: '%2~'
+  prompt_segment $CURRENT_BG blue '%2~'
 }
 
 # Virtualenv: current working virtualenv
