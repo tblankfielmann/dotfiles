@@ -49,14 +49,14 @@ brew 'weaveworks/tap/eksctl'
 # cask 'multipass'
 
 # Terraform
-brew 'terraform'
-brew 'terraform-docs'
 brew 'graphviz'
+# terraform installed by tfenv
+brew 'tfenv', link: true
 brew 'tflint'
-brew 'terragrunt'
-brew 'tfenv', link: :force
+brew 'terraform-docs'
+# terragrunt installed by tgenv
 tap 'alextodicescu/tgenv'
-brew 'tgenv'
+brew 'tgenv', link: true
 
 # Microsoft related
 # cask 'powershell'
