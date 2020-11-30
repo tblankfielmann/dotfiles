@@ -72,8 +72,10 @@ prompt_kubecontext() {
   CNS=$(kubens -c 2>/dev/null)
   if [[ $CTX == *"dev"* ]]; then
     prompt_segment green black "${CTX}:${CNS}"
-  elif [[ $CTX == *"qa"* ]]; then
+  elif [[ $CTX == *"test"* ]]; then
     prompt_segment yellow black "${CTX}:${CNS}"
+  elif [[ $CTX == *"mgmt"* ]]; then
+    prompt_segment red yellow "${CTX}:${CNS}"
   elif [[ $CTX == *"prod"* ]]; then
     prompt_segment red yellow "${CTX}:${CNS}"
   elif [[ $CTX != "" ]]; then
@@ -227,7 +229,7 @@ prompt_aws() {
   [[ -z "$AWS_PROFILE" || "$SHOW_AWS_PROMPT" = false ]] && return
   case "$AWS_PROFILE" in
     *-prod|*production*) prompt_segment red yellow  "AWS: $AWS_PROFILE" ;;
-    *) prompt_segment green black "AWS: $AWS_PROFILE" ;;
+    *) prompt_segment green black "$AWS_PROFILE" ;;
   esac
 }
 
