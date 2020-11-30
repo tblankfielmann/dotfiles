@@ -22,13 +22,9 @@ ZSH_THEME="agnoster"
 TERM="xterm-256color"
 
 plugins=(
-    aws
-    git
-    kubectl
-    kube-ps1
+    #     kubectl
+    #     kube-ps1
     ssh-agent
-    git-prompt
-    osx
 )
 
 # --------------------------------------------------------------------------
