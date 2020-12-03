@@ -43,7 +43,7 @@ brew 'saml2aws'
 brew 'awscli'
 tap 'weaveworks/tap'
 brew 'weaveworks/tap/eksctl'
-# cask 'aws-vault'
+cask 'aws-vault'
 
 # brew 'packer'
 # cask 'multipass'
@@ -74,7 +74,7 @@ brew 'highlight'
 # cask 'quicklook-json'
 
 # git tools
-brew 'git'
+# brew 'git' # Better use the native git 
 brew 'gitup'
 brew 'git-secret'
 brew 'pre-commit'
@@ -146,3 +146,4 @@ cask 'grandperspective'
 cask 'atext'
 cask 'openconnect-gui'
 cask '1password-cli'
+cask 'drawio'
