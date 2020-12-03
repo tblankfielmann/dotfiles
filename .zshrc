@@ -1,14 +1,22 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 GOPATH=~/go
 
 _path+="$HOME/.bin"
-_path+=":$HOME/Library/Python/2.7/bin"
+_path+=":$HOME/.local/bin"
 _path+=":$HOME/.tgenv/bin"
 _path+=":$GOPATH/bin"
-_path+=":$HOME/.gem/ruby/2.6.0/bin"
-_path+=":${HOME}/.krew/bin"
+_path+=":$HOME/.krew/bin"
 
 PATH="$_path:$PATH"
-source $HOME/.zshrc.secret
+source "$HOME/.zshrc.secret" # keep private things in a separate file
+
+TERM="xterm-256color"
 
 # --------------------------------------------------------------------------
 # zsh related
@@ -17,14 +25,12 @@ source $HOME/.zshrc.secret
 ZSH="$HOME/.oh-my-zsh"
 
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="frisk-local"
 ZSH_THEME="agnoster"
-TERM="xterm-256color"
 
 plugins=(
-    #     kubectl
-    #     kube-ps1
     ssh-agent
+    zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 
 # --------------------------------------------------------------------------
@@ -32,8 +38,9 @@ plugins=(
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=10000000
 export SAVEHIST=$HISTSIZE
-setopt hist_ignore_all_dups
-setopt hist_ignore_space
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
 
 source $ZSH/oh-my-zsh.sh
 # source $HOME/.helm/helmenv.sh
@@ -58,6 +65,8 @@ fi
 alias ec="$EDITOR $HOME/.zshrc"
 # source ~/.zshrc
 alias sc="source $HOME/.zshrc"
+# edit ~/.Brewfile
+alias eb="$EDITOR $HOME/.Brewfile"
 
 # --------------------------------------------------------------------------
 # Kubernetes

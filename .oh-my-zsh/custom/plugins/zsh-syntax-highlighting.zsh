@@ -1,3 +1,4 @@
+# https://github.com/zsh-users/zsh-syntax-highlighting
 # -------------------------------------------------------------------------------------------------
 # Copyright (c) 2010-2016 zsh-syntax-highlighting contributors
 # All rights reserved.
