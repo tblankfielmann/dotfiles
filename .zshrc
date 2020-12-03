@@ -30,7 +30,7 @@ ZSH_THEME="agnoster"
 plugins=(
     ssh-agent
     zsh-autosuggestions
-    zsh-syntax-highlighting
+    zsh-syntax-highlighting # has to be the last plugin
 )
 
 # --------------------------------------------------------------------------
