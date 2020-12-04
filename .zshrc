@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 GOPATH=~/go
 
 _path+="$HOME/.bin"
@@ -43,14 +36,17 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 
 source $ZSH/oh-my-zsh.sh
-# source $HOME/.helm/helmenv.sh
-# secrets kept here
-source $HOME/.zshrc.secret
+[ -f $HOME/.helm/helmenv.sh ] && source $HOME/.helm/helmenv.sh
+
+# keep secrets secret ;)
+[ -f $HOME/.zshrc.secret ] && source $HOME/.zshrc.secret
 
 # --------------------------------------------------------------------------
 # direnv
-export DIRENV_WARN_TIMEOUT=120s
-eval "$(direnv hook zsh)"
+if command -v direnv &>/dev/null; then
+    export DIRENV_WARN_TIMEOUT=120s
+    eval "$(direnv hook zsh)"
+fi
 
 # --------------------------------------------------------------------------
 # Preferred editor for local and remote sessions
