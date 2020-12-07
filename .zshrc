@@ -64,6 +64,9 @@ alias sc="source $HOME/.zshrc"
 # edit ~/.Brewfile
 alias eb="$EDITOR $HOME/.Brewfile"
 
+# prune docker files
+alias docker-prune='docker system prune --all --force --volumes'
+
 # --------------------------------------------------------------------------
 # Kubernetes
 export KUBERNETES_MASTER=""
