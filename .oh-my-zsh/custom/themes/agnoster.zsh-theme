@@ -177,7 +177,8 @@ build_prompt() {
   prompt_virtualenv
   prompt_aws
   prompt_kubecontext
-  prompt_context
+  prompt_segment black default ""
+  # prompt_context
   prompt_dir
   prompt_git
   prompt_end

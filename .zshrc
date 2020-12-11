@@ -5,10 +5,9 @@ _path+=":$HOME/.local/bin"
 _path+=":$HOME/.tgenv/bin"
 _path+=":$GOPATH/bin"
 _path+=":$HOME/.krew/bin"
+_path+=":$HOME//.cargo/bin"
 
 PATH="$_path:$PATH"
-source "$HOME/.zshrc.secret" # keep private things in a separate file
-
 TERM="xterm-256color"
 
 # --------------------------------------------------------------------------
@@ -16,15 +15,18 @@ TERM="xterm-256color"
 # --------------------------------------------------------------------------
 # Path to oh-my-zsh installation
 ZSH="$HOME/.oh-my-zsh"
-
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster"
+source "$ZSH/oh-my-zsh.sh"
 
 plugins=(
+    terraform
+    kubectl
     ssh-agent
     zsh-autosuggestions
-    zsh-syntax-highlighting # has to be the last plugin
+    zsh-syntax-highlighting
 )
+# zsh-syntax-highlighting  has to be the last plugin
 
 # --------------------------------------------------------------------------
 # History
@@ -35,11 +37,16 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 
-source $ZSH/oh-my-zsh.sh
-[ -f $HOME/.helm/helmenv.sh ] && source $HOME/.helm/helmenv.sh
+# --------------------------------------------------------------------------
+# helmenv
+[ -e $HOME/.helm/helmenv.sh ] && source $HOME/.helm/helmenv.sh
 
+# --------------------------------------------------------------------------
 # keep secrets secret ;)
-[ -f $HOME/.zshrc.secret ] && source $HOME/.zshrc.secret
+[ -e $HOME/.zshrc.secret ] && source $HOME/.zshrc.secret
+
+# iTerm2
+[ -e "${HOME}/.iterm2_shell_integration.zsh" ] && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # --------------------------------------------------------------------------
 # direnv
@@ -47,6 +54,9 @@ if command -v direnv &>/dev/null; then
     export DIRENV_WARN_TIMEOUT=120s
     eval "$(direnv hook zsh)"
 fi
+
+# eksctl
+eval "$(eksctl completion zsh)"
 
 # --------------------------------------------------------------------------
 # Preferred editor for local and remote sessions
@@ -67,6 +77,8 @@ alias eb="$EDITOR $HOME/.Brewfile"
 # prune docker files
 alias docker-prune='docker system prune --all --force --volumes'
 
+# alias tf='terraform'
+
 # --------------------------------------------------------------------------
 # Kubernetes
 export KUBERNETES_MASTER=""
@@ -82,8 +94,4 @@ alias kc='kubectl'
 # alias kctx='kubectl config current-context'
 # alias kcon='kubectl config use-context'
 # alias kgc='kubectl config get-context'
-alias kalias='alias | egrep "kx=|kn=|kc=|kgi=|kgp=|kgs=|kctx0|kcon=|kgc="'
-
-# eval "$(eksctl completion zsh)"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+alias kalias='alias | egrep "kx=|kn=|kc=|kgi=|kgp=|kgs=|kct|kcon=|kgc="'
