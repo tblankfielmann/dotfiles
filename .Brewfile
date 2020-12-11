@@ -22,6 +22,7 @@ brew 'derailed/k9s/k9s'
 # brew 'minikube'
 # Operator SDK
 brew 'operator-sdk'
+brew 'derailed/popeye/popeye'
 
 # Helm
 brew 'helm'
@@ -44,6 +45,7 @@ brew 'awscli'
 tap 'weaveworks/tap'
 brew 'weaveworks/tap/eksctl'
 cask 'aws-vault'
+# brew 'awsume'
 
 # brew 'packer'
 # cask 'multipass'
@@ -66,6 +68,7 @@ brew 'tgenv', link: true
 tap 'homebrew/cask-fonts'
 cask 'font-source-code-pro'
 cask 'font-source-sans-pro'
+cask 'font-fantasque-sans-mono'
 brew 'highlight'
 
 # QuickLook
@@ -74,7 +77,7 @@ brew 'highlight'
 # cask 'quicklook-json'
 
 # git tools
-# brew 'git' # Better use the native git 
+# brew 'git' # Better use macOS git 
 brew 'gitup'
 brew 'git-secret'
 brew 'pre-commit'
@@ -89,6 +92,7 @@ brew 'nektos/tap/act'
 # Editor & Terminal
 cask 'visual-studio-code'
 cask 'iterm2'
+brew 'fzf'
 
 # yaml / json
 brew 'jq'
