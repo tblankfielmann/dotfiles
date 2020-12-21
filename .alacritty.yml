@@ -1,3 +1,5 @@
+title: Terminal
+
 env:
   TERM: xterm-256color
 
@@ -11,6 +13,7 @@ window:
   decorations: buttonless
   title: Terminal
 
+# Colors (Nord)
 colors:
   # Default colors
   primary:
@@ -45,7 +48,12 @@ colors:
     white: "0xeceff4"
 
 font:
+  # family: Fantasque Sans Mono
   normal:
-    # family: Fantasque Sans Mono
     family: Source Code Pro for Powerline
+    style: Regular
+  bold:
+    family: Source Code Pro for Powerline
+    style: Medium
+
   size: 18

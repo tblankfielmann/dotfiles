@@ -89,10 +89,12 @@ brew 'git-credential-manager'
 tap 'nektos/tap'
 brew 'nektos/tap/act'
 
-# Editor & Terminal
+# Editor & Terminal tools
 cask 'visual-studio-code'
-cask 'iterm2'
+cask 'alacritty'
 brew 'fzf'
+brew 'ripgrep'
+brew 'tmux'
 
 # yaml / json
 brew 'jq'
