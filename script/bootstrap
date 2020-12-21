@@ -12,9 +12,10 @@ done
 popd >/dev/null
 
 echo "--> linking Oh My Zsh custom"
-pushd ~/.dotfiles/.oh-my-zsh >/dev/null
-rm -rf "$HOME/.oh-my-zsh/custom"
-ln -sf $(pwd)/custom "$HOME/.oh-my-zsh"
+for subdir in plugins themes; do
+    pushd "$HOME"/.dotfiles/.oh-my-zsh/custom/$subdir/ >/dev/null
+    ln -sf $(pwd)/* "$HOME"/.oh-my-zsh/custom/$subdir
+done
 popd >/dev/null
 
 ## create SSH directory
