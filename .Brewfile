@@ -42,6 +42,7 @@ brew 'chart-releaser'
 tap 'versent/homebrew-taps'
 brew 'saml2aws'
 brew 'awscli'
+cask 'session-manager-plugin'
 tap 'weaveworks/tap'
 brew 'weaveworks/tap/eksctl'
 cask 'aws-vault'
@@ -68,7 +69,7 @@ brew 'tgenv', link: true
 tap 'homebrew/cask-fonts'
 cask 'font-source-code-pro'
 cask 'font-source-sans-pro'
-cask 'font-fantasque-sans-mono'
+# cask 'font-fantasque-sans-mono'
 brew 'highlight'
 
 # QuickLook
@@ -140,6 +141,7 @@ brew 'miniupnpc'
 # more messengers ;)
 cask 'slack'
 cask 'telegram'
+cask 'signal'
 
 # miscellaneous apps
 cask 'dropbox'

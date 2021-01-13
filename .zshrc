@@ -1,14 +1,18 @@
-GOPATH=~/go
+GOPATH=$HOME
+SOURCE=$GOPATH/src
 
 _path+="$HOME/.bin"
 _path+=":$HOME/.local/bin"
 _path+=":$HOME/.tgenv/bin"
+_path+=":$HOME/.helmenv/bin"
 _path+=":$GOPATH/bin"
 _path+=":$HOME/.krew/bin"
-_path+=":$HOME//.cargo/bin"
+_path+=":$HOME/.cargo/bin"
 
 PATH="$_path:$PATH"
 TERM="xterm-256color"
+
+ssh-add -K ~/.ssh/id_rsa # macOS: passphrase will also be stored in the user's keychain
 
 # --------------------------------------------------------------------------
 # zsh related
@@ -17,12 +21,12 @@ TERM="xterm-256color"
 ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster"
+HISTCONTROL=ignoredups:ignorespace
 source "$ZSH/oh-my-zsh.sh"
 
 plugins=(
     terraform
     kubectl
-    ssh-agent
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
@@ -56,7 +60,7 @@ if command -v direnv &>/dev/null; then
 fi
 
 # eksctl
-eval "$(eksctl completion zsh)"
+# eval "$(eksctl completion zsh)"
 
 # --------------------------------------------------------------------------
 # Preferred editor for local and remote sessions
@@ -74,8 +78,13 @@ alias sc="source $HOME/.zshrc"
 # edit ~/.Brewfile
 alias eb="$EDITOR $HOME/.Brewfile"
 
+alias git-open='gh repo view --web'
+alias mtr='sudo /usr/local/sbin/mtr'
+
 # prune docker files
 alias docker-prune='docker system prune --all --force --volumes'
+
+alias pre-commit-show='pre-commit run --all-files --show-diff-on-failure'
 
 # alias tf='terraform'
 
