@@ -3,6 +3,8 @@ title: Terminal
 env:
   TERM: xterm-256color
 
+alt_send_esc: false
+
 window:
   dimensions:
     columns: 100
