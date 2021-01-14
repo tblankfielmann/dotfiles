@@ -154,3 +154,4 @@ cask 'grandperspective'         # -- Graphically shows disk usage within a file 
 # cask 'openconnect-gui'        # -- Graphical OpenConnect client
 # cask '1password-cli'          # -- Command-line helper for the 1Password password manager
 # cask 'drawio'                 # -- free online diagram software
+cask 'spotify'                  # -- Music streaming service
