@@ -111,6 +111,7 @@ brew 'shellcheck'               # -- Static analysis and lint tool, for (ba)sh s
 
 # dev Node.js
 brew 'node'                     # -- Platform built on V8 to build network applications
+brew 'yarn'                     # -- JavaScript package manager
 
 # dev Ruby
 # brew 'rbenv'                  # -- ruby version manager
